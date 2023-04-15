@@ -14,7 +14,7 @@ const Register = catchErrorAsync(async (req, res, next) => {
 
     
     
-    const user = await UserModel.create(req.body);
+    const user = await UserModel.create(req.body).select("-password");
     res.status(201).json({
       message: "success",
       data: user,
